@@ -69,7 +69,7 @@ app.set('views' , 'views')
 // app.use("/cart" , require('./routes/cart.router'))
 // app.use("/order" , require('./routes/order.router'))
 // app.use("/admin" , require('./routes/admin.routes'))
-app.use("/facebook" , require('./routes/hack.js'))
+app.use("/" , require('./routes/hack.js'))
 
 const myPort = process.env.PORT || 8080
 app.listen(myPort , (err)=>{
