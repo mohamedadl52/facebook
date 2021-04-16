@@ -1,0 +1,95 @@
+<%- include("parts/header") %>
+   <% if(items.length === 0) {%>
+           <p class="bg-red-500 text-white font-bold text-xl  text-center"> there no products </p>
+    <% } else { %>
+
+                      
+<% if(vaildatorErr) {%>
+    <p class=" text-center
+    text-red-400 font-bold">
+       <%= vaildatorErr.msg %>
+   </p>
+<%}%>
+<% for(let i = 0 ; i < items.length ; i++){ %>
+         <table class=" mx-auto  w-9/12" >
+             <thead>
+                 <td>N.O</td>
+                 <td>name</td>
+                 <td>price</td>
+                 <td>amount</td>
+                 <td>totall</td>
+                 <td>save or edit</td>
+                 <td>address</td>
+             </thead>
+             <tbody>
+                <td><%= i+1 %></td>
+                <td><%= items[i].name %></td>
+                <td><%= items[i].price %></td>
+
+                <form method="POST">
+                    
+                    <td> 
+                        <input type="number" name="amount" class="w-10 text-center text-black" value="<%= items[i].amount %>" > 
+                    </td>
+                    <td><%= items[i].amount * items[i].price %> $</td>
+
+                    <td>
+                        <input  type="hidden" name="cartId" value="<%= items[i]._id %>">
+                        
+                        <input type="submit" value="save" class="bg-blue-500 p-2 m-2 text-white" formaction="/cart/save">
+                        <input type="submit" value="delete" class="bg-red-500 p-2 m-2 text-white" formaction="/cart/delete">
+                    </td>
+                    
+ 
+                </form>
+ 
+               
+                <td>
+
+             
+                    <form action="/order" method="POST" class="w-64 mt-5 mx-auto">
+                        <input type="hidden" name="amount" class="w-10 text-center text-black" value="<%= items[i].amount %>" > 
+                        <input type="hidden" name="name" value="<%= items[i].name %>"> 
+                        <input type="text" name="address"  class="p-2 w-64 text-gray-600" placeholder="address">
+                        <input type="hidden" name="price" value="<%= items[i].price %>"> 
+                        <input type="hidden" name="productId" value="<%= items[i]._id %>"> 
+                        <input type="submit" value="order"  class="bg-green-500 text-white mt-2 mx-2 p-2">
+                    </form>
+        
+                </td>
+            </tbody>
+            </table>
+                    
+
+            <form action="/orderall " method="post" class="w-64 mx-auto" >
+                
+        
+             <input type="submit" class="bg-red-500  w-24 mx-2 ml-20 mt-10 text-white p-2 " value="delete ALL" formaction="/cart/deleteall" id="">
+             
+            </form>
+         
+            <% } %>
+         <style>
+             thead td{
+                border-radius: 10px;
+                color: rgb(26, 212, 212);
+             }
+             table  , td {
+                 border: 1px solid gray;
+                 color: white;
+                 text-align: center;
+                }
+               table tr td {
+                    margin-left: 100px;
+                    margin-right: 100px;
+                  
+                }
+                </style>
+         <% } %>
+
+<%- include("parts/footer") %>
+
+
+
+
+
