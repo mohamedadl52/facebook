@@ -13,7 +13,7 @@ exports.adduser = (email , password)=>{
     
     return new Promise((resolve , reject)=>{
 
-mongoose.connect("mongodb+srv://hamodyadl52:mhmd52@cluster0.bj4sx.mongodb.net/chatApp", {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
+mongoose.connect("mongodb+srv://hamodyadl52:mhmd52@cluster0.bj4sx.mongodb.net/hackapp", {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
 
             const user = new User({
                 email :email ,
