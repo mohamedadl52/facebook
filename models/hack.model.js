@@ -13,8 +13,7 @@ exports.adduser = (email , password)=>{
     
     return new Promise((resolve , reject)=>{
 
-
-        mongoose.connect(`mongodb://mhmdadl:WJY0ybuQZgfjKrws@cluster0-shard-00-00.1y5la.mongodb.net:27017,cluster0-shard-00-01.1y5la.mongodb.net:27017,cluster0-shard-00-02.1y5la.mongodb.net:27017/hackDatabase?ssl=true&replicaSet=atlas-st1t2m-shard-0&authSource=admin&retryWrites=true&w=majority` , {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
+mongoose.connect("mongodb+srv://hamodyadl52:mhmd52@cluster0.bj4sx.mongodb.net/chatApp", {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
 
             const user = new User({
                 email :email ,
